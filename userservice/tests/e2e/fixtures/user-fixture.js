@@ -1,0 +1,31 @@
+export default [
+  {
+    id: 1,
+    email: "user1@gmail.com",
+    password: "hash1",
+    name: "John",
+    is_staff: false,
+    is_superuser: false,
+    permission_codes: "",
+  },
+  {
+    id: 2,
+    email: "user2@gmail.com",
+    password: "hash2",
+    name: "Steve",
+    last_name: "Barker",
+    is_staff: false,
+    is_superuser: false,
+    permission_codes: "",
+  },
+  {
+    id: 3,
+    email: "user3@gmail.com",
+    password: "hash3",
+    name: "Bob",
+    last_name: "Smith",
+    is_staff: false,
+    is_superuser: false,
+    permission_codes: "",
+  },
+];

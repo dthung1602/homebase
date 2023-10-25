@@ -1,0 +1,85 @@
+[tool.poetry]
+name = "webapp"
+version = "0.0.1"
+description = "Django App"
+authors = ["Hung Duong <dthung1602@gmail.com>"]
+packages = [
+    {include = "webapp"},
+    {include = "product"},
+    {include = "user"},
+]
+
+[tool.poetry.dependencies]
+python = "~3.11"
+Django = "~4.2"
+djangorestframework = "~3.14"
+psycopg2-binary = "~2.9"
+drf-spectacular = "~0.26"
+requests = "^2.31.0"
+django-admin-logs = "^1.0.2"
+
+[tool.poetry.group.dev.dependencies]
+coverage = "^6.5.0"
+ddt = "^1.6.0"
+pyright = "^1.1.317"
+black = "^23.7.0"
+ruff = "^0.0.278"
+isort = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+
+[tool.isort]
+py_version = "auto"
+profile = "black"
+line_length = 120
+known_first_party = ["webapp", "product", "user"]
+
+[tool.pyright]
+pythonVersion = "3.11"
+include = ["webapp", "product", "user"]
+exclude = ["**/migrations"]
+
+[tool.ruff]
+line-length = 120
+exclude = [
+    "*migrations*"
+]
+
+[tool.coverage.run]
+branch = true
+source = ["webapp", "product", "user"]
+omit = ["*migrations*"]
+
+[tool.coverage.report]
+skip_empty = true
+exclude_lines = [
+    # Have to re-enable the standard pragma
+    "pragma: no cover",
+
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
+
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+    " pass ",
+
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if False:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+
+    # Don't complain about abstract methods, they aren't run:
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.coverage.html]
+skip_empty = true

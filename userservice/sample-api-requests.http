@@ -1,0 +1,74 @@
+### CREATE super user
+
+POST localhost:3000/users/
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "secret-string",
+  "name": "Admin",
+  "permission_codes": "add_contenttype,add_group,add_logentry,add_permission,add_product,add_session,add_user,change_contenttype,change_group,change_logentry,change_permission,change_product,change_session,change_user,delete_contenttype,delete_group,delete_logentry,delete_permission,delete_product,delete_session,delete_user,view_contenttype,view_group,view_logentry,view_permission,view_product,view_session,view_user",
+  "is_staff": true,
+  "is_superuser": true
+}
+
+### CREATE normal user
+
+POST localhost:3000/users/
+Content-Type: application/json
+
+{
+  "email": "normal@example.com",
+  "password": "secret-string",
+  "name": "Admin",
+  "permission_codes": "add_logentry,add_product,add_session,change_product,change_session,delete_product,view_contenttype,view_group,view_logentry,view_permission,view_product,view_user",
+  "is_staff": true,
+  "is_superuser": false
+}
+
+### GET single user
+
+GET localhost:3000/users/1
+
+### GET all users
+
+GET localhost:3000/users
+
+### GET users with pagination
+
+GET localhost:3000/users?page=2&perPage=1
+
+### UPDATE user
+
+PATCH localhost:3000/users/1
+Content-Type: application/json
+
+{
+  "email": "admin@gmail.com",
+  "name": "New Name",
+  "password": "new-password"
+}
+
+### AUTH success
+
+POST localhost:3000/users/auth
+Content-Type: application/json
+
+{
+  "email": "admin@gmail.com",
+  "password": "new-password"
+}
+
+### AUTH fail
+
+POST localhost:3000/users/auth
+Content-Type: application/json
+
+{
+  "email": "admin@gmail.com",
+  "password": "secret-string"
+}
+
+### DELETE user
+
+DELETE localhost:3000/users/2

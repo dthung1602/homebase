@@ -1,0 +1,57 @@
+{
+  "name": "userservice",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node ./src/bin/serve.js",
+    "dev": "nodemon ./src/bin/serve.js",
+    "lint": "eslint --fix .",
+    "test": "NODE_ENV=test jest --runInBand",
+    "coverage": "NODE_ENV=test jest --runInBand --coverage=true"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 10000,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/tests/"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ]
+  },
+  "dependencies": {
+    "@awaitjs/express": "^0.7.1",
+    "bcrypt": "^5.0.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.17.1",
+    "express-enforces-ssl": "^1.1.0",
+    "express-validator": "^6.9.2",
+    "helmet": "^4.4.1",
+    "lodash": "^4.17.20",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.33.0",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "@jest/environment": "^26.0.1",
+    "@jest/globals": "^26.4.2",
+    "@types/express": "^4.17.8",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jest": "^23.18.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "faker": "^5.5.3",
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.0.5",
+    "supertest": "^6.1.6"
+  }
+}
