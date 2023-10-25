@@ -22,7 +22,8 @@
 4. The django webapp is available at `localhost:8000`
 5. Create first superuser using `userservice`: 
    Make the first HTTP request in file `userservice/sample-api-requests.http`
-6. The django admin page is at `http://localhost:8000/admin/`
+6. Migrate django database: `docker exec -it homebase-webapp-1 python manage.py migrate`
+7. The django admin page is at `http://localhost:8000/admin/`
 
 ### Compromises
 
